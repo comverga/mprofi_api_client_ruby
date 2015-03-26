@@ -1,0 +1,16 @@
+*swp
+*~
+etc/*yaml
+tmp
+Gemfile.lock
+package
+pkg
+var
+*-bkp_*
+TODO
+.tags*
+*.log
+.ruby-gemset
+.ruby-version
+*.gem
+doc
