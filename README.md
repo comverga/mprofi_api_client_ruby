@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/mprofi_api_client.svg)](http://badge.fury.io/rb/mprofi_api_client)
 
 # Mprofi API connector
 
