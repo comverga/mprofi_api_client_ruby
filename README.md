@@ -40,7 +40,7 @@ connector = MprofiApiClient::Connector.new(API_TOKEN)
 begin
     connector.add_message('501002003', 'Test message 1', 'your-msg-id-001')
     connector.add_message('601002003', 'Test message 2', 'your-msg-id-002')
-    result = cliend.send
+    result = connector.send
     # => [{"id"=>58}, {"id"=>59}]
 
     result.each do |r|
