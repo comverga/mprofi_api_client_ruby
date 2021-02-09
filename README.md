@@ -14,14 +14,14 @@ gem 'mprofi_api_client'
 
 # or
 
-gem 'mprofi_api_client', :git => 'https://github.com/materna/mprofi_api_client_ruby.git'
+gem 'mprofi_api_client', :git => 'https://github.com/comverga/mprofi_api_client_ruby.git'
 
 ```
 
 ### From github.com
 
 ```bash
-git clone https://github.com/materna/mprofi_api_client_ruby.git
+git clone https://github.com/comverga/mprofi_api_client_ruby.git
 cd mprofi_api_client_ruby
 rake build
 gem install mprofi_api_client-0.1.0.gem
@@ -60,4 +60,4 @@ end
 
 ## Copyright
 
-Copyright (c) 2015 Materna Communications. See LICENSE for details.
+Copyright (c) 2015 COMVERGA Sp. z o. o. See LICENSE for details.

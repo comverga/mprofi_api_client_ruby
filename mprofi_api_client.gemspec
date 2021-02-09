@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
 
   spec.summary      = 'MProfi API client library'
   spec.date         = '2015-03-05'
-  spec.authors      = ['Materna Communications']
-  
-  spec.email        = 'biuro@materna.com.pl'
-  spec.homepage     = 'https://github.com/materna/mprofi_api_client-ruby'
+  spec.authors      = ['COMVERGA Sp. z o. o.']
+
+  spec.email        = 'pomoc@mprofi.pl'
+  spec.homepage     = 'https://github.com/comverga/mprofi_api_client_ruby'
   spec.description  = spec.summary
   spec.license      = 'BSD'
 
