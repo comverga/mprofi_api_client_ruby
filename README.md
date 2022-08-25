@@ -24,7 +24,7 @@ gem 'mprofi_api_client', :git => 'https://github.com/comverga/mprofi_api_client_
 git clone https://github.com/comverga/mprofi_api_client_ruby.git
 cd mprofi_api_client_ruby
 rake build
-gem install mprofi_api_client-0.1.0.gem
+gem install mprofi_api_client-0.1.1.gem
 ```
 
 # Usage
@@ -39,13 +39,16 @@ connector = MprofiApiClient::Connector.new(API_TOKEN)
 # connector = MprofiApiClient::Connector.new(API_TOKEN, 'http://your_proxy_host_address:8080/')
 begin
     connector.add_message('501002003', 'Test message 1', 'your-msg-id-001')
-    connector.add_message('601002003', 'Test message 2', 'your-msg-id-002')
+    # message with Polish diacritics
+    connector.add_message('601002003', 'Test message ąćęłńóśźż', 'your-msg-id-002', encoding: 'utf-8')
+    # scheduled message
+    connector.add_message('701002003', 'Test message 3', 'your-msg-id-003', date: '2022-08-30T12:00:00+02:00')
     result = connector.send
-    # => [{"id"=>58}, {"id"=>59}]
+    # => [{"id"=>58},{"id"=>59},{"id"=>60}]
 
     result.each do |r|
         status = connector.get_status(r['id'])
-        # => {"status"=>"delivered", "id"=>11, "reference"=>"your-msg-id-001", "ts"=>"2015-03-26T10:55:06.098Z"}
+        # => {"status"=>"delivered", "id"=>58, "reference"=>"your-msg-id-001", "ts"=>"2015-03-26T10:55:06.098Z"}
 
         # do sth with status
     end
