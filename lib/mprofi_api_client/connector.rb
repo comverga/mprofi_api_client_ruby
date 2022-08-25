@@ -33,12 +33,17 @@ module MprofiApiClient
     # +recipient+:: Message recipient as string (phone number format: XXXXXXXXX f.e. 664400100).
     # +message+:: Message content as string.
     # +reference+:: Client message ID defined by user for message tracking. (optional)
-    def add_message(recipient, message, reference = nil)
+    # +options+:: Message options: encoding (default: {}):
+    #             +:encoding+ - set to 'utf-8' if you need special characters (diacritical marks, emoji),
+    #             +:date+ - time the message will be sent (accepted formats: ISO-8601, unix epoch)
+    def add_message(recipient, message, reference = nil, options = {})
       raise ArgumentError, "`recipient` cannot be empty" if recipient.nil? || recipient.empty?
       raise ArgumentError, "`message` cannot be empty" if message.nil? || message.empty?
 
       message = { 'recipient' =>  recipient, 'message' => message }
       message['reference'] = reference if reference
+      message['encoding'] = options[:encoding] if options.key?(:encoding)
+      message['date'] = options[:date] if options.key?(:date)
 
       @messages << message
     end
