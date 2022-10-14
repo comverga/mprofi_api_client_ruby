@@ -38,6 +38,8 @@ connector = MprofiApiClient::Connector.new(API_TOKEN)
 # or
 # connector = MprofiApiClient::Connector.new(API_TOKEN, 'http://your_proxy_host_address:8080/')
 begin
+    # you can change read_timeout if the default of 60 seconds is not enough
+    # connector.read_timeout = 120
     connector.add_message('501002003', 'Test message 1', 'your-msg-id-001')
     # message with Polish diacritics
     connector.add_message('601002003', 'Test message ąćęłńóśźż', 'your-msg-id-002', encoding: 'utf-8')

@@ -27,6 +27,7 @@ module MprofiApiClient
       @proxy_url = proxy_url
       @messages = []
       @clear_messages = true
+      @read_timeout = nil
     end
 
     # Add one message to message queue.
@@ -85,6 +86,11 @@ module MprofiApiClient
       return result
     end
 
+    # Set read timeout
+    # +timeout+ - number of seconds
+    def read_timeout=(timeout)
+      @read_timeout = timeout
+    end
 
     private
 
@@ -122,6 +128,8 @@ module MprofiApiClient
           http.use_ssl = true
           http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
+
+        http.read_timeout = @read_timeout unless @read_timeout.nil?
 
         result = http.request(request)
       rescue Exception => err
